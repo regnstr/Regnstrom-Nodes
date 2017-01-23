@@ -1,2 +1,2 @@
-# dynamo-scripts
-A collection of dynamo scripts
+# Regnstrom
+A collection of utility nodes for Dynamo
