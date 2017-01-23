@@ -1,0 +1,164 @@
+<Workspace Version="0.9.0.3067" X="-513.129825536236" Y="-224.122935489293" zoom="0.632235403396069" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="ad71594f-8f55-4f11-83ae-2c1697d715c1" type="Dynamo.Nodes.DSFunction" nickname="Excel.ReadFromFile" x="238.498549060431" y="88.8026310074447" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSOffice.dll" function="DSOffice.Excel.ReadFromFile@var,string,bool">
+      <PortInfo index="2" default="True" />
+    </Dynamo.Nodes.DSFunction>
+    <DSCore.File.Filename guid="05800be0-4375-4c99-ab1f-94fc40fbda2c" type="DSCore.File.Filename" nickname="File Path" x="-319.45355224404" y="61.1874267264989" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.String>C:\Users\seregn\dynamo\01_Sheets\CreateSheets.xlsx</System.String>
+    </DSCore.File.Filename>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="e003dd6d-1f16-41e3-a99d-124ad158386f" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-143.61175554371" y="188.710072129478" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;Blad1&quot;;" ShouldFocus="false" />
+    <DSCore.File.FileObject guid="c1ff805b-dfa1-4f70-b116-bd8eb225c964" type="DSCore.File.FileObject" nickname="File.FromPath" x="32.5536258718485" y="60.2195242596392" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="d2d00399-d6b5-4f83-825b-6762a19e0707" type="Dynamo.Nodes.DSFunction" nickname="List.GetItemAtIndex" x="687.25783392757" y="-67.7062422609546" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.GetItemAtIndex@var[]..[],int" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="b97cf59a-100e-432d-878e-839eb61c9412" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="532.76899313123" y="64.0153234744993" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="0;" ShouldFocus="false" />
+    <DSRevitNodesUI.Categories guid="4973ac4c-8a5b-42be-ae01-23488a7f9c15" type="DSRevitNodesUI.Categories" nickname="Categories" x="468.696848578266" y="481.27875851154" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="865:TitleBlocks" />
+    <DSRevitNodesUI.FamilyTypes guid="fc1feaaf-be45-4254-8369-10a6b6438f28" type="DSRevitNodesUI.FamilyTypes" nickname="Family Types" x="1005.75911507374" y="316.243660941401" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="2:A1 BH90:A1 BH90" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="9efc2142-2782-40ac-8695-5df0ef60764d" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Prefix" x="1469.23847681971" y="718.571388309046" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;A-40.1-&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="2af3071c-8330-4dd0-a0e6-dde050230e14" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Antal plan" x="1496.68039352863" y="912.777059684936" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="13;" ShouldFocus="false" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="25ce7fef-ec8d-42c3-a461-ec1a8df553e8" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Antal delar" x="1492.94974855526" y="1012.73778093073" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="12;" ShouldFocus="false" />
+    <PythonNodeModels.PythonNode guid="3dba7751-7bbb-455b-9e18-7901a9b77b71" type="PythonNodeModels.PythonNode" nickname="Python Script" x="1777.24966127352" y="769.853885940741" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="4">
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+prefix = IN[0]
+
+firstFloor = IN[1]
+numPlans = IN[2]
+numParts = IN[3]
+
+sheetNumbers = []
+
+for i in range(numPlans):
+	for j in range(numParts):
+		nextSheetNumber = '{0}{1:02}{2:02}'.format(prefix, firstFloor+i, j+1)
+		sheetNumbers.append(nextSheetNumber)
+
+
+
+#Assign your output to the OUT variable.
+OUT = sheetNumbers</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Nodes.Watch guid="ff2e0a96-15c0-4752-a1c0-af34122d115a" type="Dynamo.Nodes.Watch" nickname="Watch" x="2060.13152386509" y="769.716155486157" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="d835c3ac-7b1a-4cf1-b8a5-68cde2ef85f9" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Första plan" x="1491.63115076376" y="812.055550263441" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="8;" ShouldFocus="false" />
+    <Dynamo.Nodes.Function guid="a8db3c4e-5bbf-4d49-9c63-b6bd0338d4b3" type="Dynamo.Nodes.Function" nickname="Document.Views" x="-323.771829905607" y="393.145829963394" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="True">
+      <ID value="de43b934-e84a-4c0a-b298-06207ba545cd" />
+      <Name value="Document.Views" />
+      <Description value="Gets all views in the document - except for 3D view templates (as long as this bug is not fixed: https://github.com/DynamoDS/Dynamo/issues/2970)" />
+      <Inputs />
+      <Outputs>
+        <Output value="Views" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Watch guid="9b6d5c89-2a72-44d9-b051-c932b170278e" type="Dynamo.Nodes.Watch" nickname="Watch" x="-396.893202210287" y="709.4084809254" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="2fde3907-b92c-46b1-bbc6-4702935cb7a1" type="Dynamo.Nodes.DSFunction" nickname="Element.GetParameterValueByName" x="333.40164289949" y="1086.62856854735" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.GetParameterValueByName@string" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="8a1824a0-36c4-4b51-960b-4ab3bb8a955e" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="17.9514011858215" y="1114.08260005247" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;View Name&quot;;" ShouldFocus="false" />
+    <PythonNodeModels.PythonNode guid="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" type="PythonNodeModels.PythonNode" nickname="Python Script" x="633.038349887075" y="1190.62856854735" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="2">
+      <Script>import clr
+import re
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+sheetNames = IN[0]
+pattern = IN[1]
+
+matches = [[] for x in range(2)]
+
+for i in range(len(sheetNames)):
+	m = re.match(pattern, sheetNames[i])
+	if m:
+		matches[0].append(m.group(2))
+		matches[1].append(True)
+	else:
+		matches[1].append(False)
+		
+#Assign your output to the OUT variable.
+OUT = matches</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="e2892449-7b62-45b1-be7e-0d89777b5de7" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="391.520549130309" y="1294.62856854735" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;(SH - )(.* -.*)&quot;;" ShouldFocus="false" />
+    <DSCore.SortByKey guid="91d7e499-682b-4c97-aaf4-b2b8c2379e91" type="DSCore.SortByKey" nickname="SortByKey" x="1546.84894849304" y="1330.01468360277" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.Watch guid="0cde0f0d-c98c-49d3-8364-2bb67af633a7" type="Dynamo.Nodes.Watch" nickname="Watch" x="1804.17764876028" y="1330.52240505904" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="7a16b787-a179-4114-a51f-c10dd3d47bb3" type="Dynamo.Nodes.DSFunction" nickname="List.GetItemAtIndex" x="1036.68134243133" y="1153.36281105326" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.GetItemAtIndex@var[]..[],int" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="26b61cf1-08ac-447a-a70c-9cfbd194c76d" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="913.453496736543" y="1229.201763449" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="0;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="427b5053-2539-44e9-8d9e-96072648c005" type="Dynamo.Nodes.DSFunction" nickname="List.GetItemAtIndex" x="1038.86603006038" y="1317.61161779187" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.GetItemAtIndex@var[]..[],int" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="5c82cc98-22e4-4513-b5fa-5263128e99ca" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="901.63114653333" y="1367.18737425212" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="1;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="3953af62-2793-4275-a0f3-83e9ad359cdf" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="1278.96934732052" y="1255.32888001269" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Nodes.DSFunction guid="421dd50d-1dee-46f0-97cb-15b23616754d" type="Dynamo.Nodes.DSFunction" nickname="Sheet.ByNameNumberTitleBlockAndView" x="1717.87298178971" y="195.417645803567" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Views.Sheet.ByNameNumberTitleBlockAndView@string,string,Revit.Elements.FamilyType,Revit.Elements.Views.View" />
+    <Dynamo.Nodes.DSFunction guid="54ba405c-7d0f-442c-a7b7-c683bac67fc5" type="Dynamo.Nodes.DSFunction" nickname="List.Transpose" x="503.769465305225" y="-56.4119700253174" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.Transpose@var[]..[]" />
+    <Dynamo.Nodes.DSFunction guid="d8e1ba6b-628c-465c-877a-5245a1ca2031" type="Dynamo.Nodes.DSFunction" nickname="List.RemoveItemAtIndex" x="928.696890037847" y="-71.9600684378612" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.RemoveItemAtIndex@var[]..[],int[]" />
+    <Dynamo.Nodes.DSFunction guid="fec57e4e-b8bd-4965-ab21-2bd66080d94d" type="Dynamo.Nodes.DSFunction" nickname="List.RemoveItemAtIndex" x="924.612949413343" y="114.986274101602" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.RemoveItemAtIndex@var[]..[],int[]" />
+    <Dynamo.Nodes.DSFunction guid="6ed9eb79-70a3-4ce4-a6ca-3a234f79326a" type="Dynamo.Nodes.DSFunction" nickname="List.GetItemAtIndex" x="717.241946839723" y="117.617812014858" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.GetItemAtIndex@var[]..[],int" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="a172a523-6b86-4783-b743-4a84f7f838a1" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="536.260032765407" y="166.982703186224" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="1;" ShouldFocus="false" />
+    <DSRevitNodesUI.Views guid="17796b34-e28c-431a-a8d6-e6387a6afd1e" type="DSRevitNodesUI.Views" nickname="Views" x="1072.4797902597" y="466.703017771918" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="176:Drafting 1" />
+    <Dynamo.Nodes.DSFunction guid="56a09303-c716-454e-acd1-102fa265ab99" type="Dynamo.Nodes.DSFunction" nickname="Element.SetParameterByName" x="2165.90558344094" y="318.798795458991" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.SetParameterByName@string,var" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="c49bfd15-efda-486f-a5e3-93ae31699ac9" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1771.13180836632" y="514.162106759434" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;CQ Browser Group&quot;;&#xA;&quot;Hej&quot;;" ShouldFocus="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="ad71594f-8f55-4f11-83ae-2c1697d715c1" start_index="0" end="54ba405c-7d0f-442c-a7b7-c683bac67fc5" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="05800be0-4375-4c99-ab1f-94fc40fbda2c" start_index="0" end="c1ff805b-dfa1-4f70-b116-bd8eb225c964" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e003dd6d-1f16-41e3-a99d-124ad158386f" start_index="0" end="ad71594f-8f55-4f11-83ae-2c1697d715c1" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c1ff805b-dfa1-4f70-b116-bd8eb225c964" start_index="0" end="ad71594f-8f55-4f11-83ae-2c1697d715c1" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d2d00399-d6b5-4f83-825b-6762a19e0707" start_index="0" end="d8e1ba6b-628c-465c-877a-5245a1ca2031" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b97cf59a-100e-432d-878e-839eb61c9412" start_index="0" end="d2d00399-d6b5-4f83-825b-6762a19e0707" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b97cf59a-100e-432d-878e-839eb61c9412" start_index="0" end="d8e1ba6b-628c-465c-877a-5245a1ca2031" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b97cf59a-100e-432d-878e-839eb61c9412" start_index="0" end="fec57e4e-b8bd-4965-ab21-2bd66080d94d" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="fc1feaaf-be45-4254-8369-10a6b6438f28" start_index="0" end="421dd50d-1dee-46f0-97cb-15b23616754d" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9efc2142-2782-40ac-8695-5df0ef60764d" start_index="0" end="3dba7751-7bbb-455b-9e18-7901a9b77b71" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2af3071c-8330-4dd0-a0e6-dde050230e14" start_index="0" end="3dba7751-7bbb-455b-9e18-7901a9b77b71" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="25ce7fef-ec8d-42c3-a461-ec1a8df553e8" start_index="0" end="3dba7751-7bbb-455b-9e18-7901a9b77b71" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="3dba7751-7bbb-455b-9e18-7901a9b77b71" start_index="0" end="ff2e0a96-15c0-4752-a1c0-af34122d115a" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d835c3ac-7b1a-4cf1-b8a5-68cde2ef85f9" start_index="0" end="3dba7751-7bbb-455b-9e18-7901a9b77b71" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a8db3c4e-5bbf-4d49-9c63-b6bd0338d4b3" start_index="0" end="9b6d5c89-2a72-44d9-b051-c932b170278e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a8db3c4e-5bbf-4d49-9c63-b6bd0338d4b3" start_index="0" end="2fde3907-b92c-46b1-bbc6-4702935cb7a1" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a8db3c4e-5bbf-4d49-9c63-b6bd0338d4b3" start_index="0" end="3953af62-2793-4275-a0f3-83e9ad359cdf" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2fde3907-b92c-46b1-bbc6-4702935cb7a1" start_index="0" end="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="8a1824a0-36c4-4b51-960b-4ab3bb8a955e" start_index="0" end="2fde3907-b92c-46b1-bbc6-4702935cb7a1" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" start_index="0" end="7a16b787-a179-4114-a51f-c10dd3d47bb3" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" start_index="0" end="427b5053-2539-44e9-8d9e-96072648c005" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e2892449-7b62-45b1-be7e-0d89777b5de7" start_index="0" end="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="91d7e499-682b-4c97-aaf4-b2b8c2379e91" start_index="0" end="0cde0f0d-c98c-49d3-8364-2bb67af633a7" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7a16b787-a179-4114-a51f-c10dd3d47bb3" start_index="0" end="91d7e499-682b-4c97-aaf4-b2b8c2379e91" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="26b61cf1-08ac-447a-a70c-9cfbd194c76d" start_index="0" end="7a16b787-a179-4114-a51f-c10dd3d47bb3" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="427b5053-2539-44e9-8d9e-96072648c005" start_index="0" end="3953af62-2793-4275-a0f3-83e9ad359cdf" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="5c82cc98-22e4-4513-b5fa-5263128e99ca" start_index="0" end="427b5053-2539-44e9-8d9e-96072648c005" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="3953af62-2793-4275-a0f3-83e9ad359cdf" start_index="0" end="91d7e499-682b-4c97-aaf4-b2b8c2379e91" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="421dd50d-1dee-46f0-97cb-15b23616754d" start_index="0" end="56a09303-c716-454e-acd1-102fa265ab99" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="54ba405c-7d0f-442c-a7b7-c683bac67fc5" start_index="0" end="d2d00399-d6b5-4f83-825b-6762a19e0707" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="54ba405c-7d0f-442c-a7b7-c683bac67fc5" start_index="0" end="6ed9eb79-70a3-4ce4-a6ca-3a234f79326a" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d8e1ba6b-628c-465c-877a-5245a1ca2031" start_index="0" end="421dd50d-1dee-46f0-97cb-15b23616754d" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="fec57e4e-b8bd-4965-ab21-2bd66080d94d" start_index="0" end="421dd50d-1dee-46f0-97cb-15b23616754d" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6ed9eb79-70a3-4ce4-a6ca-3a234f79326a" start_index="0" end="fec57e4e-b8bd-4965-ab21-2bd66080d94d" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a172a523-6b86-4783-b743-4a84f7f838a1" start_index="0" end="6ed9eb79-70a3-4ce4-a6ca-3a234f79326a" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="17796b34-e28c-431a-a8d6-e6387a6afd1e" start_index="0" end="421dd50d-1dee-46f0-97cb-15b23616754d" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c49bfd15-efda-486f-a5e3-93ae31699ac9" start_index="0" end="56a09303-c716-454e-acd1-102fa265ab99" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c49bfd15-efda-486f-a5e3-93ae31699ac9" start_index="1" end="56a09303-c716-454e-acd1-102fa265ab99" end_index="2" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations>
+    <Dynamo.Models.AnnotationModel guid="241f5337-120a-43a9-8c27-6fd0e8e816d8" annotationText="Indata för sheet numbers" left="1459.23847681971" top="674.571388309046" width="139" height="431.166392621684" fontSize="14" InitialTop="718.571388309046" InitialHeight="417.166392621682" TextblockHeight="34" backgrouund="#FFC1D676">
+      <Models ModelGuid="9efc2142-2782-40ac-8695-5df0ef60764d" />
+      <Models ModelGuid="2af3071c-8330-4dd0-a0e6-dde050230e14" />
+      <Models ModelGuid="25ce7fef-ec8d-42c3-a461-ec1a8df553e8" />
+      <Models ModelGuid="d835c3ac-7b1a-4cf1-b8a5-68cde2ef85f9" />
+    </Dynamo.Models.AnnotationModel>
+    <Dynamo.Models.AnnotationModel guid="6b2d3419-bfde-4e0c-8fc3-4c73eb088f7b" annotationText="Get Views and filter by regular expressions, view names are output to [0] and a boolean mask to filter with to [1]" left="7.95140118582151" top="1056.62856854735" width="759.086948701253" height="331" fontSize="14" InitialTop="1086.62856854735" InitialHeight="252.668086700538" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="2fde3907-b92c-46b1-bbc6-4702935cb7a1" />
+      <Models ModelGuid="8a1824a0-36c4-4b51-960b-4ab3bb8a955e" />
+      <Models ModelGuid="692fb8f5-d3ab-4b05-9632-3c10ef4ff1d4" />
+      <Models ModelGuid="e2892449-7b62-45b1-be7e-0d89777b5de7" />
+    </Dynamo.Models.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+  <SessionTraceData>
+    <NodeTraceData NodeId="421dd50d-1dee-46f0-97cb-15b23616754d">
+      <CallsiteTraceData>PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDAuOS4wLjMwNjclMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPmZhbHNlPC9CYXNlLTBfSGFzRGF0YT4NCjxCYXNlLTBfSGFzTmVzdGVkRGF0YT50cnVlPC9CYXNlLTBfSGFzTmVzdGVkRGF0YT4NCjxCYXNlLTBfTmVzdGVkRGF0YUNvdW50PjU8L0Jhc2UtMF9OZXN0ZWREYXRhQ291bnQ+DQo8QmFzZS0wLTBfSGFzRGF0YT50cnVlPC9CYXNlLTAtMF9IYXNEYXRhPg0KPEJhc2UtMC0wX0RhdGEgaWQ9InJlZi0zIj5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0ek1EWTNKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrWkRCa1lUVmlNekl0TXpRNVlpMDBaVGxsTFRreE9UUXRaalJpWmpaallUTmhORGd6TFRBd01XUXhaV0ZpUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eE9UQTRNemsxUEM5cGJuUkpSRDROQ2p3dllURTZVMlZ5YVdGc2FYcGhZbXhsU1dRK0RRbzhMMU5QUVZBdFJVNVdPa0p2WkhrK0RRbzhMMU5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxQZzBLPC9CYXNlLTAtMF9EYXRhPg0KPEJhc2UtMC0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0wX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTFfSGFzRGF0YT50cnVlPC9CYXNlLTAtMV9IYXNEYXRhPg0KPEJhc2UtMC0xX0RhdGEgaWQ9InJlZi00Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0ek1EWTNKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrWkRCa1lUVmlNekl0TXpRNVlpMDBaVGxsTFRreE9UUXRaalJpWmpaallUTmhORGd6TFRBd01XUXhaV0l4UEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eE9UQTROREF4UEM5cGJuUkpSRDROQ2p3dllURTZVMlZ5YVdGc2FYcGhZbXhsU1dRK0RRbzhMMU5QUVZBdFJVNVdPa0p2WkhrK0RRbzhMMU5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxQZzBLPC9CYXNlLTAtMV9EYXRhPg0KPEJhc2UtMC0xX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0xX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTJfSGFzRGF0YT50cnVlPC9CYXNlLTAtMl9IYXNEYXRhPg0KPEJhc2UtMC0yX0RhdGEgaWQ9InJlZi01Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0ek1EWTNKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrWkRCa1lUVmlNekl0TXpRNVlpMDBaVGxsTFRreE9UUXRaalJpWmpaallUTmhORGd6TFRBd01XUXhaV05tUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eE9UQTRORE14UEM5cGJuUkpSRDROQ2p3dllURTZVMlZ5YVdGc2FYcGhZbXhsU1dRK0RRbzhMMU5QUVZBdFJVNVdPa0p2WkhrK0RRbzhMMU5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxQZzBLPC9CYXNlLTAtMl9EYXRhPg0KPEJhc2UtMC0yX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0yX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTNfSGFzRGF0YT50cnVlPC9CYXNlLTAtM19IYXNEYXRhPg0KPEJhc2UtMC0zX0RhdGEgaWQ9InJlZi02Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0ek1EWTNKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrWkRCa1lUVmlNekl0TXpRNVlpMDBaVGxsTFRreE9UUXRaalJpWmpaallUTmhORGd6TFRBd01XUXhaV1ExUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eE9UQTRORE0zUEM5cGJuUkpSRDROQ2p3dllURTZVMlZ5YVdGc2FYcGhZbXhsU1dRK0RRbzhMMU5QUVZBdFJVNVdPa0p2WkhrK0RRbzhMMU5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxQZzBLPC9CYXNlLTAtM19EYXRhPg0KPEJhc2UtMC0zX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0zX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTRfSGFzRGF0YT50cnVlPC9CYXNlLTAtNF9IYXNEYXRhPg0KPEJhc2UtMC00X0RhdGEgaWQ9InJlZi03Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0ek1EWTNKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrWkRCa1lUVmlNekl0TXpRNVlpMDBaVGxsTFRreE9UUXRaalJpWmpaallUTmhORGd6TFRBd01XUXhaV1JpUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eE9UQTRORFF6UEM5cGJuUkpSRDROQ2p3dllURTZVMlZ5YVdGc2FYcGhZbXhsU1dRK0RRbzhMMU5QUVZBdFJVNVdPa0p2WkhrK0RRbzhMMU5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxQZzBLPC9CYXNlLTAtNF9EYXRhPg0KPEJhc2UtMC00X0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC00X0hhc05lc3RlZERhdGE+DQo8L2ExOkNhbGxTaXRlX3gwMDJCX1RyYWNlU2VyaWFsaXNlckhlbHBlcj4NCjwvU09BUC1FTlY6Qm9keT4NCjwvU09BUC1FTlY6RW52ZWxvcGU+DQo=</CallsiteTraceData>
+    </NodeTraceData>
+  </SessionTraceData>
+</Workspace>

@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebNodes</name>
+    </assembly>
+    <members>
+        <member name="T:HTTP.HTTP">
+            <summary>
+            ASDASDFWEAF!?
+            </summary>
+        </member>
+        <member name="M:HTTP.HTTP.GET(System.String)">
+            <summary>
+            GET
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HTTP.HTTP.POST(System.String,System.String)">
+            <summary>
+            POST
+            </summary>
+            <param name="url"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JSON.JsonObject">
+            <summary>
+            Methods for creating and manipulating JSON objects
+            </summary>
+        </member>
+        <member name="M:JSON.JsonObject.ByString(System.String)">
+            <summary>
+            Create a JsonObject from a string
+            </summary>
+            <param name="jsonString">The JSON string</param>
+            <returns>A JsonObject</returns>
+        </member>
+        <member name="M:JSON.JsonObject.ByKeysAndValues(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Object})">
+            <summary>
+            ASD
+            </summary>
+            <param name="keys"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.ByKeyAndValue(System.String,System.Object)">
+            <summary>
+            asd
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.ByKeyAndValues(System.String,System.Collections.Generic.List{System.Object})">
+            <summary>
+            ASD
+            </summary>
+            <param name="key"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.Empty">
+            <summary>
+            Create an empty JsonObject
+            </summary>
+            <returns>An empty JsonObject</returns>
+        </member>
+        <member name="M:JSON.JsonObject.ToJsonString(JSON.JsonObject,System.Boolean)">
+            <summary>
+            Converts a JsonObject into a JSON string
+            </summary>
+            <param name="json">The JSON object</param>
+            <param name="readable">Add whitespaces to the string</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.Get(System.String)">
+            <summary>
+            Returns the JsonObject, array or value at the specified key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.GetIn(System.String[])">
+            <summary>
+            Returns the value located at the path specified by a list of strings
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.Set(System.String,System.Object)">
+            <summary>
+            Add a key/value pair to the JsonObject
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns>The updated JsonObject</returns>
+        </member>
+        <member name="M:JSON.JsonObject.Delete(System.String)">
+            <summary>
+            Delete a key from the JsonObject
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JSON.JsonObject.Clear">
+            <summary>
+            Removes all keys and values from this JsonObject
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JSON.JsonArray">
+            <summary>
+            ASDDCLAS
+            </summary>
+        </member>
+        <member name="M:JSON.JsonArray.ByList(System.Collections.Generic.List{System.Object})">
+            <summary>
+            ASDASD
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebNodes.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WebNodes.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WebNodes.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WebNodes.Properties.Resources.HttpMIMEformUrlencoded">
+            <summary>
+              Looks up a localized string similar to application/x-www-form-urlencoded.
+            </summary>
+        </member>
+        <member name="P:WebNodes.Properties.Resources.HttpRequestEmptyUrlMessage">
+            <summary>
+              Looks up a localized string similar to The provided url is empty..
+            </summary>
+        </member>
+        <member name="P:WebNodes.Properties.Resources.HttpRequestInvalidUrlMessage">
+            <summary>
+              Looks up a localized string similar to The provided url is invalid..
+            </summary>
+        </member>
+    </members>
+</doc>

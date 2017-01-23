@@ -1,0 +1,73 @@
+<Workspace Version="1.0.0.1180" X="-381.730383342034" Y="-45.6039757905986" zoom="1.05429821501133" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="9d3e410e-742d-4847-bdbd-fc69efbde4f8" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="714.663536840864" y="201.232771260623" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;E&quot;};&#xA;{&quot;A&quot;, &quot;B&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;};" ShouldFocus="false" />
+    <PythonNodeModels.PythonNode guid="f16c0340-0c65-437c-9bed-b92db44d133f" type="PythonNodeModels.PythonNode" nickname="Python Script" x="1108.60603474972" y="188.707760585833" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+list1 = IN[0]
+list2 = IN[1]
+
+#Python black magic
+output = [[] for i in range(3)]
+
+
+#This builds the list of matches and the list of items
+#in list1 not present in list2
+for i in range(len(list1)):
+	for j in range(len(list2)):
+		tempVal = list1[i]
+		if tempVal == list2[j]:
+			output[0].append(tempVal)
+			tempVal = None
+			break
+	output[1].append(tempVal)
+
+#This builds the list of items missing from list1
+for i in range(len(list2)):
+	for j in range(len(list1)):
+		tempVal = list2[i]
+		if tempVal == list1[j]:
+			tempVal = None
+			break
+	output[2].append(tempVal)
+
+#Assign your output to the OUT variable.
+OUT = output</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="b111118a-9170-46c2-8d9d-c9cf6469d4b6" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="+" x="886.267843789165" y="362.05208647521" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="Operators" function="+@var[]..[],var[]..[]" />
+    <PythonNodeModels.PythonNode guid="3e8256fd-3ff4-4cd0-ad8a-ffeefbb7672c" type="PythonNodeModels.PythonNode" nickname="Python Script" x="1040.39075625847" y="363.762603832472" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="1">
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+output = []
+
+output.append('type: ' + str(type(IN[0])))
+output.append('str: ' + str(IN[0]))
+output.append('dir: ' + str(dir(IN[0])))
+
+#Assign your output to the OUT variable.
+OUT = output</Script>
+    </PythonNodeModels.PythonNode>
+    <CoreNodeModels.Watch guid="8018bfe5-d25f-4fad-b981-959c9f114ebf" type="CoreNodeModels.Watch" nickname="Watch" x="1277.31273417464" y="350.731201795044" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="9d3e410e-742d-4847-bdbd-fc69efbde4f8" start_index="0" end="f16c0340-0c65-437c-9bed-b92db44d133f" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="9d3e410e-742d-4847-bdbd-fc69efbde4f8" start_index="1" end="f16c0340-0c65-437c-9bed-b92db44d133f" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="b111118a-9170-46c2-8d9d-c9cf6469d4b6" start_index="0" end="3e8256fd-3ff4-4cd0-ad8a-ffeefbb7672c" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3e8256fd-3ff4-4cd0-ad8a-ffeefbb7672c" start_index="0" end="8018bfe5-d25f-4fad-b981-959c9f114ebf" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

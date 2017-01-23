@@ -1,0 +1,99 @@
+<Workspace Version="0.9.1.4062" X="-140.592929976143" Y="277.482103647813" zoom="0.616107147327431" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="5378fe5b-9ba3-469a-8784-cdcf7ed974b9" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Document.Views" x="389.305067132106" y="300.048456344961" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <PortInfo index="0" default="True" />
+      <ID value="de43b934-e84a-4c0a-b298-06207ba545cd" />
+      <Name value="Document.Views" />
+      <Description value="Gets all views in the document - except for 3D view templates (as long as this bug is not fixed: https://github.com/DynamoDS/Dynamo/issues/2970)" />
+      <Inputs>
+        <Input value="toggle" />
+      </Inputs>
+      <Outputs>
+        <Output value="Views" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="639aa946-fe6b-4beb-af25-a65e37f00632" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Element.Name (Universal)" x="662.977346631034" y="210.006469995762" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <ID value="9266cc47-e982-46fc-9fd4-59bd7fb19a53" />
+      <Name value="Element.Name (Universal)" />
+      <Description value="Gets an element's name (Dynamo's built-in Name nodes don't work for all element types, e.g. worksets...)" />
+      <Inputs>
+        <Input value="element" />
+      </Inputs>
+      <Outputs>
+        <Output value="name" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="12ede927-0d92-48b2-b5ed-30a63608c608" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Element.SetName" x="2202.15924442348" y="302.388154391668" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <ID value="2f56d88b-a263-45de-b9e5-e074dbe52635" />
+      <Name value="Element.SetName" />
+      <Description value="Gets the name of a given Revit element" />
+      <Inputs>
+        <Input value="element" />
+        <Input value="name" />
+      </Inputs>
+      <Outputs>
+        <Output value="Success" />
+        <Output value="Fail" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="ebe9bafd-e9b7-4c43-96d1-54183dc2d224" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="String.MatchRegularExpression" x="986.226427760997" y="83.1110510319858" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <ID value="f7ef95e1-3082-4cda-a204-a35fd8dc81ed" />
+      <Name value="String.MatchRegularExpression" />
+      <Description value="Determines if a regular expression matches a string (or a list of strings) and returns a boolean value (or a list, depending on the input). The syntax for regular expressions is explained at&#xD;&#xA;http://ironpython-test.readthedocs.org/en/latest/howto/regex.html" />
+      <Inputs>
+        <Input value="RegEx" />
+        <Input value="str" />
+      </Inputs>
+      <Outputs>
+        <Output value="bool" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="2f137642-9f83-49c1-ae60-ad0ed2f5d268" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="735" y="87" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" CodeText="&quot;^SH -&quot;;" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="ef085f21-24c3-4a3b-a225-0fda8c2b3cd3" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="List.FilterByBoolMask" x="1327.66666107747" y="298.669896075347" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="44871632-745b-4276-9b6f-86cc3a85e8ad" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Element.Name (Universal)" x="1576.90236294111" y="516.198207005669" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <ID value="9266cc47-e982-46fc-9fd4-59bd7fb19a53" />
+      <Name value="Element.Name (Universal)" />
+      <Description value="Gets an element's name (Dynamo's built-in Name nodes don't work for all element types, e.g. worksets...)" />
+      <Inputs>
+        <Input value="element" />
+      </Inputs>
+      <Outputs>
+        <Output value="name" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="bba70bff-bc7c-4e4a-8e6c-19791f6d21ec" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="String.ReplaceRegularExpression" x="1850.82789899083" y="418.942180184435" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
+      <ID value="c7383e46-3412-4dec-9194-831d1dc98e50" />
+      <Name value="String.ReplaceRegularExpression" />
+      <Description value="Replaces all occurences of a regular expression within a given string (or list of strings) with another string. The syntax for regular expressions is explained at&#xD;&#xA;http://ironpython-test.readthedocs.org/en/latest/howto/regex.html" />
+      <Inputs>
+        <Input value="RegEx" />
+        <Input value="str" />
+        <Input value="Replacement" />
+      </Inputs>
+      <Outputs>
+        <Output value="str" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="c8975ce3-a14a-4352-bf8b-8add14406d98" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1593.63654368023" y="371.606758100405" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" CodeText="&quot;(^SH)(.*)&quot;;&#xA;&quot;BH\2&quot;;" ShouldFocus="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="5378fe5b-9ba3-469a-8784-cdcf7ed974b9" start_index="0" end="639aa946-fe6b-4beb-af25-a65e37f00632" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="5378fe5b-9ba3-469a-8784-cdcf7ed974b9" start_index="0" end="ef085f21-24c3-4a3b-a225-0fda8c2b3cd3" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="639aa946-fe6b-4beb-af25-a65e37f00632" start_index="0" end="ebe9bafd-e9b7-4c43-96d1-54183dc2d224" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="ebe9bafd-e9b7-4c43-96d1-54183dc2d224" start_index="0" end="ef085f21-24c3-4a3b-a225-0fda8c2b3cd3" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="2f137642-9f83-49c1-ae60-ad0ed2f5d268" start_index="0" end="ebe9bafd-e9b7-4c43-96d1-54183dc2d224" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="ef085f21-24c3-4a3b-a225-0fda8c2b3cd3" start_index="0" end="44871632-745b-4276-9b6f-86cc3a85e8ad" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="ef085f21-24c3-4a3b-a225-0fda8c2b3cd3" start_index="0" end="12ede927-0d92-48b2-b5ed-30a63608c608" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="44871632-745b-4276-9b6f-86cc3a85e8ad" start_index="0" end="bba70bff-bc7c-4e4a-8e6c-19791f6d21ec" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="bba70bff-bc7c-4e4a-8e6c-19791f6d21ec" start_index="0" end="12ede927-0d92-48b2-b5ed-30a63608c608" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c8975ce3-a14a-4352-bf8b-8add14406d98" start_index="0" end="bba70bff-bc7c-4e4a-8e6c-19791f6d21ec" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c8975ce3-a14a-4352-bf8b-8add14406d98" start_index="1" end="bba70bff-bc7c-4e4a-8e6c-19791f6d21ec" end_index="2" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

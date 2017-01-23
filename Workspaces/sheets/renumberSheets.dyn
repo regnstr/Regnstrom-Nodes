@@ -1,0 +1,82 @@
+<Workspace Version="0.9.0.3067" X="-1720.15221209647" Y="276.262509444482" zoom="0.926652175244368" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DSRevitNodesUI.ElementsOfCategory guid="470be25c-da6b-48e8-96c8-7bc657f83c89" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="1095.07268347969" y="186.615651533273" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="c0d617c2-1506-43ba-9c6f-a043fa4c833f" type="Dynamo.Nodes.DSFunction" nickname="Category.ByName" x="861.072683479689" y="187.615651533273" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Category.ByName@string" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="1b39b1c2-505d-417d-8497-0d5a8458da4a" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="648" y="192" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;OST_Sheets&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="2046847b-817b-4083-8bb9-f3286f532438" type="Dynamo.Nodes.DSFunction" nickname="Sheet.SheetNumber" x="1361.11568958319" y="25.1664935126899" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Views.Sheet.SheetNumber" />
+    <Dynamo.Nodes.Function guid="bb29c046-977e-43c3-90ce-b18b1b819a08" type="Dynamo.Nodes.Function" nickname="String.MatchRegularExpression" x="1747.52944708906" y="133.1756013872" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="f7ef95e1-3082-4cda-a204-a35fd8dc81ed" />
+      <Name value="String.MatchRegularExpression" />
+      <Description value="Determines if a regular expression matches a string (or a list of strings) and returns a boolean value (or a list, depending on the input). The syntax for regular expressions is explained at&#xD;&#xA;http://ironpython-test.readthedocs.org/en/latest/howto/regex.html" />
+      <Inputs>
+        <Input value="RegEx" />
+        <Input value="str" />
+      </Inputs>
+      <Outputs>
+        <Output value="bool" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="c3172522-ba8b-4e28-a284-6a11bbd3d84e" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1342.12622716218" y="-168.027945782334" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;A-(4\d)\.(\d)-(\d{3})&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.Function guid="77b448a1-78c9-4f83-8d56-4eab8daa62b8" type="Dynamo.Nodes.Function" nickname="String.ReplaceRegularExpression" x="2237.26239129187" y="-147.773053080047" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="c7383e46-3412-4dec-9194-831d1dc98e50" />
+      <Name value="String.ReplaceRegularExpression" />
+      <Description value="Replaces all occurences of a regular expression within a given string (or list of strings) with another string. The syntax for regular expressions is explained at&#xD;&#xA;http://ironpython-test.readthedocs.org/en/latest/howto/regex.html" />
+      <Inputs>
+        <Input value="RegEx" />
+        <Input value="str" />
+        <Input value="Replacement" />
+      </Inputs>
+      <Outputs>
+        <Output value="str" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSFunction guid="d30aa4b2-bcf7-4789-a77b-6866ef072f26" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="2025.03684852859" y="9.19580087393217" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="7df12b25-de7c-43fd-9830-01b98e39dea3" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1344.33832572319" y="-78.9340802008275" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;A-\1-\2-0\3&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="0bab6ddc-7454-4360-8647-19e016b9fc6b" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="2038.17011614847" y="283.937256640338" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Nodes.Function guid="a561e507-a46a-4efb-99a2-71484b2504b3" type="Dynamo.Nodes.Function" nickname="Set BuiltIn Parameter" x="2823.87001470534" y="107.011276204345" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="21f3e406-c566-444b-87fe-d7745f85d5a3" />
+      <Name value="Set BuiltIn Parameter" />
+      <Description value="This node will take an input of a built in parameter name and set that parameter to given value for given elements. " />
+      <Inputs>
+        <Input value="ParameterName" />
+        <Input value="Elements" />
+        <Input value="ParameterValues" />
+      </Inputs>
+      <Outputs>
+        <Output value="OUT" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="9bc77bba-76a3-4928-b0ff-657ee8cb9503" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="2539.19060526164" y="69.4863891833582" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;SHEET_NUMBER&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.Watch guid="d01577b7-1eac-4640-b09f-5b2742477329" type="Dynamo.Nodes.Watch" nickname="Watch" x="2310.63204651931" y="285.692407170689" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="470be25c-da6b-48e8-96c8-7bc657f83c89" start_index="0" end="2046847b-817b-4083-8bb9-f3286f532438" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="470be25c-da6b-48e8-96c8-7bc657f83c89" start_index="0" end="0bab6ddc-7454-4360-8647-19e016b9fc6b" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c0d617c2-1506-43ba-9c6f-a043fa4c833f" start_index="0" end="470be25c-da6b-48e8-96c8-7bc657f83c89" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="1b39b1c2-505d-417d-8497-0d5a8458da4a" start_index="0" end="c0d617c2-1506-43ba-9c6f-a043fa4c833f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2046847b-817b-4083-8bb9-f3286f532438" start_index="0" end="bb29c046-977e-43c3-90ce-b18b1b819a08" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2046847b-817b-4083-8bb9-f3286f532438" start_index="0" end="d30aa4b2-bcf7-4789-a77b-6866ef072f26" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="bb29c046-977e-43c3-90ce-b18b1b819a08" start_index="0" end="d30aa4b2-bcf7-4789-a77b-6866ef072f26" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="bb29c046-977e-43c3-90ce-b18b1b819a08" start_index="0" end="0bab6ddc-7454-4360-8647-19e016b9fc6b" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c3172522-ba8b-4e28-a284-6a11bbd3d84e" start_index="0" end="bb29c046-977e-43c3-90ce-b18b1b819a08" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c3172522-ba8b-4e28-a284-6a11bbd3d84e" start_index="0" end="77b448a1-78c9-4f83-8d56-4eab8daa62b8" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="77b448a1-78c9-4f83-8d56-4eab8daa62b8" start_index="0" end="a561e507-a46a-4efb-99a2-71484b2504b3" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d30aa4b2-bcf7-4789-a77b-6866ef072f26" start_index="0" end="77b448a1-78c9-4f83-8d56-4eab8daa62b8" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7df12b25-de7c-43fd-9830-01b98e39dea3" start_index="0" end="77b448a1-78c9-4f83-8d56-4eab8daa62b8" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="0bab6ddc-7454-4360-8647-19e016b9fc6b" start_index="0" end="d01577b7-1eac-4640-b09f-5b2742477329" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9bc77bba-76a3-4928-b0ff-657ee8cb9503" start_index="0" end="a561e507-a46a-4efb-99a2-71484b2504b3" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d01577b7-1eac-4640-b09f-5b2742477329" start_index="0" end="a561e507-a46a-4efb-99a2-71484b2504b3" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations>
+    <Dynamo.Models.AnnotationModel guid="ee73ed1e-5379-4e12-91b1-d80546925e79" annotationText="Top: expression to match&#xD;&#xA;Bottom: expression to replace with" left="1332.12622716218" top="-212.027945782334" width="255" height="226.093865581507" fontSize="14" InitialTop="-168.027945782334" InitialHeight="212.093865581507" TextblockHeight="34" backgrouund="#FFC1D676">
+      <Models ModelGuid="c3172522-ba8b-4e28-a284-6a11bbd3d84e" />
+      <Models ModelGuid="7df12b25-de7c-43fd-9830-01b98e39dea3" />
+    </Dynamo.Models.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

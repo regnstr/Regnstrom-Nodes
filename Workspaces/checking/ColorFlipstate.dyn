@@ -1,0 +1,111 @@
+<Workspace Version="0.9.0.3067" X="185.545890135134" Y="315.118759876815" zoom="0.696607566783613" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Color.Green" resolvedName="DSCore.Color" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Color" resolvedName="DSCore.Color" assemblyName="DSCoreNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.Function guid="6d51e876-3195-4293-9a7f-f00508f9c741" type="Dynamo.Nodes.Function" nickname="Get Built In Parameter" x="1334.84473975544" y="-239.767300107212" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="a1e64de5-460f-4dd3-8357-d9ec9980e47e" />
+      <Name value="Get Built In Parameter" />
+      <Description value="This node will take an input of a built in parameter name and element to return that parameters value. " />
+      <Inputs>
+        <Input value="ParameterNames" />
+        <Input value="Elements" />
+      </Inputs>
+      <Outputs>
+        <Output value="OUT" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <DSRevitNodesUI.ElementsOfCategory guid="2317f00e-f101-4dec-bf03-0793ffd1301e" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="67.9740695177039" y="46.2176506778727" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="57bd1793-9047-461c-a618-6f6ca2449cb7" type="Dynamo.Nodes.DSFunction" nickname="Category.ByName" x="-136.419249602557" y="46.2176506778727" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Category.ByName@string" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="50d16104-b155-40f1-bb77-07cbc98520de" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-334.566198238137" y="8.38185558927256" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="&quot;OST_Windows&quot;;" ShouldFocus="false" />
+    <Dynamo.Nodes.Function guid="6fca8477-64df-497d-9fe3-824401249039" type="Dynamo.Nodes.Function" nickname="Element.Name (Universal)" x="101.064013129442" y="-434.064227145876" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="9266cc47-e982-46fc-9fd4-59bd7fb19a53" />
+      <Name value="Element.Name (Universal)" />
+      <Description value="Gets an element's name (Dynamo's built-in Name nodes don't work for all element types, e.g. worksets...)" />
+      <Inputs>
+        <Input value="element" />
+      </Inputs>
+      <Outputs>
+        <Output value="name" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Watch guid="de6687d9-0bfc-44e4-9db1-52c347366a6f" type="Dynamo.Nodes.Watch" nickname="Watch" x="688.039698808141" y="-498.002650050163" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.Function guid="d25bba5b-d1d6-4d93-bf84-86d1e409bc61" type="Dynamo.Nodes.Function" nickname="Get Host Element" x="485.043473099067" y="-13.0675385869856" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="e543a156-98ea-4df2-ae54-3cf3e3d4bfe1" />
+      <Name value="Get Host Element" />
+      <Description value="This node will retrieve a host element from hosted element. Ex. feed in door, get wall." />
+      <Inputs>
+        <Input value="hostedElement" />
+      </Inputs>
+      <Outputs>
+        <Output value="hostElement" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="a7a6ed58-a9a1-47a6-91f1-2f4179fa453e" type="Dynamo.Nodes.Function" nickname="Wall.Orientation" x="818.604871697367" y="-15.3716345326015" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="8cfc6f31-34cf-4c99-be21-5af290dbe7b7" />
+      <Name value="Wall.Orientation" />
+      <Description value="Gets the orientation of a given wall instance (normal of the exterior face of the wall). Will *not* work for walls hosted on mass faces or in-place walls." />
+      <Inputs>
+        <Input value="wall" />
+      </Inputs>
+      <Outputs>
+        <Output value="Normal" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSFunction guid="2325714e-7e35-4a13-9872-36a2fea69910" type="Dynamo.Nodes.DSFunction" nickname="Element.OverrideColorInView" x="1967.66882794811" y="349.33187658911" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.OverrideColorInView@DSCore.Color" />
+    <Dynamo.Nodes.Function guid="979fa7e8-7634-4212-ac3a-ef4fa16e4ac3" type="Dynamo.Nodes.Function" nickname="Color.Red" x="1592.64646505455" y="395.891225524672" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="True">
+      <ID value="6315a707-503e-4065-948a-410bdb059454" />
+      <Name value="Color.Red" />
+      <Description value="Returns the colour red." />
+      <Inputs />
+      <Outputs>
+        <Output value="255,0,0" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Watch guid="0f798ba9-743f-4053-8d9c-c34b16eec40a" type="Dynamo.Nodes.Watch" nickname="Watch" x="1463.30777081095" y="366.219880827601" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="27c3b7f2-6901-45ee-a124-91c2266cca32" type="Dynamo.Nodes.DSFunction" nickname="FamilyInstance.FacingOrientation" x="778.819445654155" y="385.083881287628" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.FamilyInstance.FacingOrientation" />
+    <Dynamo.Nodes.DSFunction guid="91d64741-a936-4739-b345-5b203098f433" type="Dynamo.Nodes.DSFunction" nickname="Vector.Dot" x="1185.36076844546" y="81.2011720036232" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Vector.Dot@Autodesk.DesignScript.Geometry.Vector" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="a0cfc059-08e7-4666-a051-7285e082d253" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1388.35735009514" y="142.736633049677" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="a == 1;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="28116bee-98c9-4e6b-9f35-2bf4ed70775c" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="1607.74063328981" y="151.365750729395" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Nodes.DSModelElementsSelection guid="9dff7026-45c6-43d6-8141-a5b81839aee5" type="Dynamo.Nodes.DSModelElementsSelection" nickname="Select Model Elements" x="-64.9474292577914" y="384.445027249273" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <instance id="4a453427-dca9-4ebb-aa75-7d6a72ca0bc7-0094d76a" />
+      <instance id="32b4c3d7-b0a8-4947-8db0-6b468ca875f8-00958b7e" />
+    </Dynamo.Nodes.DSModelElementsSelection>
+    <Dynamo.Nodes.DSFunction guid="63e0f308-b41c-429d-b10f-2f203f635d7a" type="Dynamo.Nodes.DSFunction" nickname="Element.OverrideColorInView" x="1979.98879435773" y="100.640662739749" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.OverrideColorInView@DSCore.Color" />
+    <Dynamo.Nodes.Function guid="76c75a7a-e0e8-42e4-ae24-c16177d4edb9" type="Dynamo.Nodes.Function" nickname="Color.Green" x="1599.67719187912" y="279.709146994574" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="True">
+      <ID value="1c62460c-247d-478c-b6fb-4875e1d2affe" />
+      <Name value="Color.Green" />
+      <Description value="Returns the colour green." />
+      <Inputs />
+      <Outputs>
+        <Output value="0,128,0" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Watch guid="b2efe611-5626-4b9c-abf9-4885c90b79f0" type="Dynamo.Nodes.Watch" nickname="Watch" x="183.732384872965" y="187.685015748948" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="2317f00e-f101-4dec-bf03-0793ffd1301e" start_index="0" end="de6687d9-0bfc-44e4-9db1-52c347366a6f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2317f00e-f101-4dec-bf03-0793ffd1301e" start_index="0" end="b2efe611-5626-4b9c-abf9-4885c90b79f0" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="57bd1793-9047-461c-a618-6f6ca2449cb7" start_index="0" end="2317f00e-f101-4dec-bf03-0793ffd1301e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="50d16104-b155-40f1-bb77-07cbc98520de" start_index="0" end="57bd1793-9047-461c-a618-6f6ca2449cb7" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d25bba5b-d1d6-4d93-bf84-86d1e409bc61" start_index="0" end="a7a6ed58-a9a1-47a6-91f1-2f4179fa453e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a7a6ed58-a9a1-47a6-91f1-2f4179fa453e" start_index="0" end="91d64741-a936-4739-b345-5b203098f433" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="979fa7e8-7634-4212-ac3a-ef4fa16e4ac3" start_index="0" end="2325714e-7e35-4a13-9872-36a2fea69910" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="27c3b7f2-6901-45ee-a124-91c2266cca32" start_index="0" end="91d64741-a936-4739-b345-5b203098f433" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="91d64741-a936-4739-b345-5b203098f433" start_index="0" end="a0cfc059-08e7-4666-a051-7285e082d253" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a0cfc059-08e7-4666-a051-7285e082d253" start_index="0" end="28116bee-98c9-4e6b-9f35-2bf4ed70775c" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="28116bee-98c9-4e6b-9f35-2bf4ed70775c" start_index="0" end="63e0f308-b41c-429d-b10f-2f203f635d7a" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="28116bee-98c9-4e6b-9f35-2bf4ed70775c" start_index="1" end="2325714e-7e35-4a13-9872-36a2fea69910" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="76c75a7a-e0e8-42e4-ae24-c16177d4edb9" start_index="0" end="63e0f308-b41c-429d-b10f-2f203f635d7a" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b2efe611-5626-4b9c-abf9-4885c90b79f0" start_index="0" end="d25bba5b-d1d6-4d93-bf84-86d1e409bc61" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b2efe611-5626-4b9c-abf9-4885c90b79f0" start_index="0" end="27c3b7f2-6901-45ee-a124-91c2266cca32" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b2efe611-5626-4b9c-abf9-4885c90b79f0" start_index="0" end="28116bee-98c9-4e6b-9f35-2bf4ed70775c" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

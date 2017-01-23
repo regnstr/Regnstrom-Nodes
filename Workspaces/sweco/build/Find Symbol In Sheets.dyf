@@ -1,0 +1,69 @@
+<Workspace Version="0.9.0.3067" X="71.6802275290339" Y="297.969750502391" zoom="1.10476425630303" Name="Find Symbol In Sheets" Description="A node to find all occurances of a given symbol family type. The node will process all sheets with sheet numbers matching the regEx input." ID="fc5c16cf-51da-4661-bd9e-d386d6d3bb6b" Category="Sweco.Sheets">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.Function guid="94783605-93e6-4099-bbcb-8b2b183af375" type="Dynamo.Nodes.Function" nickname="String.FindRegularExpression" x="931.659394269373" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="1e3782ea-739f-4011-b8a3-0df1ade1e5a1" />
+      <Name value="String.FindRegularExpression" />
+      <Description value="Returns all occurences of a regular expression within a string (or list of strings). The syntax for regular expressions is explained at&#xD;&#xA;http://ironpython-test.readthedocs.org/en/latest/howto/regex.html" />
+      <Inputs>
+        <Input value="RegEx" />
+        <Input value="str" />
+      </Inputs>
+      <Outputs>
+        <Output value="seq" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="2c261a88-f958-4990-ac5d-0506c76ccc50" type="Dynamo.Nodes.Function" nickname="Element.Name (Universal)" x="684.994479912549" y="73.3537465105126" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="9266cc47-e982-46fc-9fd4-59bd7fb19a53" />
+      <Name value="Element.Name (Universal)" />
+      <Description value="Gets an element's name (Dynamo's built-in Name nodes don't work for all element types, e.g. worksets...)" />
+      <Inputs>
+        <Input value="element" />
+      </Inputs>
+      <Outputs>
+        <Output value="name" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.Function guid="6a505276-03be-4326-910f-10f37daf662b" type="Dynamo.Nodes.Function" nickname="Element.Workset" x="479.575561912261" y="73.750021910167" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="35d5bbd0-79d7-43a9-af54-2b366d290d4a" />
+      <Name value="Element.Workset" />
+      <Description value="Retrieves the workset of a given element" />
+      <Inputs>
+        <Input value="element" />
+      </Inputs>
+      <Outputs>
+        <Output value="workset" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <DSRevitNodesUI.ElementsOfFamilyType guid="32da21fe-f298-4c9a-8107-92b37589de6f" type="DSRevitNodesUI.ElementsOfFamilyType" nickname="All Elements of Family Type" x="250" y="144.702583451386" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.Symbol guid="eb533fcf-cff7-4031-91b0-a4eb774f7d40" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="RegEx : string" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="032e1568-d26e-4552-9678-8579ce652f6c" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="Family Type" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="dda84bbf-bae0-4b67-8220-069321bac7cb" type="Dynamo.Nodes.Output" nickname="Output" x="1200.65939426937" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="seq" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="11439798-c014-4705-9038-8d04b6f320d3" type="Dynamo.Nodes.Output" nickname="Output" x="1200.65939426937" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="Elements" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="94783605-93e6-4099-bbcb-8b2b183af375" start_index="0" end="dda84bbf-bae0-4b67-8220-069321bac7cb" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2c261a88-f958-4990-ac5d-0506c76ccc50" start_index="0" end="94783605-93e6-4099-bbcb-8b2b183af375" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6a505276-03be-4326-910f-10f37daf662b" start_index="0" end="2c261a88-f958-4990-ac5d-0506c76ccc50" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="32da21fe-f298-4c9a-8107-92b37589de6f" start_index="0" end="6a505276-03be-4326-910f-10f37daf662b" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="32da21fe-f298-4c9a-8107-92b37589de6f" start_index="0" end="11439798-c014-4705-9038-8d04b6f320d3" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="eb533fcf-cff7-4031-91b0-a4eb774f7d40" start_index="0" end="94783605-93e6-4099-bbcb-8b2b183af375" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="032e1568-d26e-4552-9678-8579ce652f6c" start_index="0" end="32da21fe-f298-4c9a-8107-92b37589de6f" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-7.34645700454712" eyeY="20.9609642028809" eyeZ="52.6784477233887" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

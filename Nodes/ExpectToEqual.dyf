@@ -1,0 +1,39 @@
+<Workspace Version="0.9.0.3067" X="-284.81382759375" Y="-260.260911421875" zoom="1.545620359375" Name="ExpectToEqual" Description="Tests two inputs against eachother, and returns the first if they are equal." ID="68148da1-0be5-4830-a28d-dd5b06ddb770" Category="Testing">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="89c9a74d-2a2d-46c2-91af-057c095ffee8" type="PythonNodeModels.PythonNode" nickname="Python Script" x="450.469894071558" y="340.652889798911" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="2">
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+#Assign your output to the OUT variable.
+if IN[0] != IN[1]:
+	raise Exception('The input values are not equal')
+else:
+	OUT = IN[0]
+</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Nodes.Symbol guid="a51d5b81-1b0c-4a3a-a9d7-464b190cb333" type="Dynamo.Nodes.Symbol" nickname="Input" x="289" y="318" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="value" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="08af6142-d883-4ffb-a333-1ec267af5570" type="Dynamo.Nodes.Symbol" nickname="Input" x="290" y="395" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="test" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="c13074c3-b42b-4eb9-ba60-61d6ac386968" type="Dynamo.Nodes.Output" nickname="Output" x="672" y="318" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="value" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="89c9a74d-2a2d-46c2-91af-057c095ffee8" start_index="0" end="c13074c3-b42b-4eb9-ba60-61d6ac386968" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a51d5b81-1b0c-4a3a-a9d7-464b190cb333" start_index="0" end="89c9a74d-2a2d-46c2-91af-057c095ffee8" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="08af6142-d883-4ffb-a333-1ec267af5570" start_index="0" end="89c9a74d-2a2d-46c2-91af-057c095ffee8" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
