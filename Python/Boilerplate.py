@@ -1,4 +1,4 @@
-# Copyright(c) 2016, Isak Regnström
+# Copyright(c) 2017, Isak Regnström
 
 # Import Element wrapper extension methods
 import clr

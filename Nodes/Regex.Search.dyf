@@ -1,0 +1,47 @@
+<Workspace Version="1.2.1.3083" X="196.530252227787" Y="313.207118729714" zoom="1.545620359375" Name="Regex.Search" Description="" ID="77324ac1-3005-443c-9be1-c66aeda0df9f" Category="Regnstrom.RegularExpression.Actions">
+  <NamespaceResolutionMap />
+  <Elements>
+    <PythonNodeModels.PythonNode guid="3fd2b80a-38d6-408e-b0a4-d57a2aba4513" type="PythonNodeModels.PythonNode" nickname="Python Script" x="251.677095335598" y="8.13577866282111" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+import re
+
+pattern = IN[0]
+string = IN[1]
+
+result = re.search(pattern, string)
+
+output = False
+
+if result != None:
+	output = True
+
+#Assign your output to the OUT variable.
+OUT = output</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="5b90ad01-2118-4a42-8c60-353c3ff3f98a" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="473.677095335598" y="8.13577866282111" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+      <Symbol value="result" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="294e955a-36a8-4656-bc01-5be957dfc776" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-12.3229046644024" y="-20.8642213371789" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="pattern : string" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="70cb9306-bd2f-4b13-8a61-b0f0c68737b4" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-12.3229046644024" y="63.1357786628211" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="str : string" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="3fd2b80a-38d6-408e-b0a4-d57a2aba4513" start_index="0" end="5b90ad01-2118-4a42-8c60-353c3ff3f98a" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="294e955a-36a8-4656-bc01-5be957dfc776" start_index="0" end="3fd2b80a-38d6-408e-b0a4-d57a2aba4513" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="70cb9306-bd2f-4b13-8a61-b0f0c68737b4" start_index="0" end="3fd2b80a-38d6-408e-b0a4-d57a2aba4513" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>
