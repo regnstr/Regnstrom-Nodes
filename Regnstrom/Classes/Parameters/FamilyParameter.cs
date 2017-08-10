@@ -19,9 +19,9 @@ namespace Parameters
     /// <summary>
     /// Methods for managing parameters
     /// </summary>
-    public class Parameter
+    public class FamilyParameter
     {
-        internal Parameter() { }
+        internal FamilyParameter() { }
 
         /// <summary>
         /// Creates a new family parameter for the currently open family document
@@ -45,7 +45,7 @@ namespace Parameters
                 throw new System.Exception("Parameter group not found");
 
 
-            FamilyParameter returnVal;
+            Autodesk.Revit.DB.FamilyParameter returnVal;
 
             // Do the actual transaction
             TransactionManager.Instance.EnsureInTransaction(doc);

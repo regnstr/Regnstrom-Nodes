@@ -16,6 +16,9 @@ using RevitServices.Transactions;
 
 namespace Site
 {
+    /// <summary>
+    /// Utility methods for handling true north and coordinates.
+    /// </summary>
     public class Location
     {
 
