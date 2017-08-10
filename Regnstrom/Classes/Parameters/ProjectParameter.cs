@@ -27,8 +27,8 @@ namespace Parameters
         /// Creates a project parameter based on the definition of a shared parameter.
         /// </summary>
         /// <param name="parameterName">The name of the parameter.</param>
-        /// <param name="instance">Instance parameter if true, else type parameter.</param>
-        /// <param name="categories">The categores to add this parameter to, by their builtin parameter name.</param>
+        /// <param name="instance">Set to true to create an instance parameter, false to create a type parameter.</param>
+        /// <param name="categories">The categores to add this parameter to, by their built in parameter name.</param>
         /// <param name="parameterGroup">The parameter group for this parameter.</param>
         /// <returns></returns>
         public static bool BySharedParameter(string parameterName, bool instance, string[] categories, string parameterGroup = "PG_TEXT")
