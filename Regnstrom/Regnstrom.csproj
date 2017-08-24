@@ -95,9 +95,11 @@
     </Reference>
     <Reference Include="RevitAPI">
       <HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
       <HintPath>C:\Program Files\Autodesk\Revit 2018\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitNodes">
       <HintPath>C:\Program Files\Dynamo\Dynamo Revit\1.3\Revit_2018\RevitNodes.dll</HintPath>
@@ -134,9 +136,14 @@
   <ItemGroup>
     <Compile Include="Classes\Elements\FamilyInstance.cs" />
     <Compile Include="Classes\Parameters\ProjectParameter.cs" />
+    <Compile Include="Classes\Revit\Document.cs" />
+    <Compile Include="Classes\Revit\ParameterGroup.cs" />
     <Compile Include="Classes\Revit\BuiltInCategory.cs" />
     <Compile Include="Classes\Site\Location.cs" />
     <Compile Include="Classes\Parameters\FamilyParameter.cs" />
+    <Compile Include="Classes\String\Scale.cs" />
+    <Compile Include="Classes\Views\View.cs" />
+    <Compile Include="Classes\Views\Sheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Parameters\SharedParameter.cs" />
     <Compile Include="Classes\String\Regex.cs" />
@@ -159,6 +166,7 @@
   </Target>
   -->
   <Target Name="AfterBuild">
+
     <!-- Get System.Drawing.dll -->
     <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v2.0">
       <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
@@ -170,5 +178,20 @@
     <!-- Generate customization dll -->
     <GenerateResource UseSourcePath="true" Sources="$(ProjectDir)\Resources\RegnstromImages.resx" OutputResources="$(ProjectDir)\Resources\RegnstromImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
     <AL TargetType="library" EmbedResources="$(ProjectDir)\Resources\RegnstromImages.resources" OutputAssembly="$(OutDir)Regnstrom.customization.dll" Version="%(AssemblyInfo.Version)" />
+
+    <ItemGroup>
+      <Dlls Include="$(OutDir)*.dll" />
+      <Pdbs Include="$(OutDir)*.pdb" />
+      <Xmls Include="$(OutDir)*.xml" />
+      <Configs Include="$(OutDir)*.config" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Dlls)" DestinationFolder="$(SolutionDir)\BuiltPackage\Regnstrom\bin\" />
+    <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(SolutionDir)\BuiltPackage\Regnstrom\bin\" />
+    <Copy SourceFiles="@(Xmls)" DestinationFolder="$(SolutionDir)\BuiltPackage\Regnstrom\bin\" />
+    <Copy SourceFiles="@(Configs)" DestinationFolder="$(SolutionDir)\BuiltPackage\Regnstrom\bin\" />
+    <MakeDir Directories="$(SolutionDir)\BuiltPackage\Regnstrom\dyf" />
+    <MakeDir Directories="$(SolutionDir)\BuiltPackage\Regnstrom\extra" />
+    
+    
   </Target>
 </Project>

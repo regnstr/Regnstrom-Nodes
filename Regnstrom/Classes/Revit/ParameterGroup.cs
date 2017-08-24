@@ -18,41 +18,41 @@ using RevitServices.Transactions;
 namespace Revit
 {
     /// <summary>
-    /// Utility methods for finding builtin categores.
+    /// Utility methods for finding builtin parameter groups.
     /// </summary>
-    public class BuiltInCategory
+    public class ParameterGroup
     {
-        internal BuiltInCategory() { }
+        internal ParameterGroup() { }
 
         /// <summary>
-        /// Finds all builtin categories matching the regex pattern.
+        /// Finds all built in parameter group names matching the regex pattern.
         /// </summary>
         /// <param name="pattern">The pattern to match.</param>
         /// <returns></returns>
-        public static List<string> FindCategoryByName(string pattern)
+        public static List<string> FindParameterGroupByName(string pattern)
         {
-            List<string> outputCategories = new List<string>();
+            List<string> outputParameterGroupNames = new List<string>();
 
-            string[] categoryNames = Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInCategory));
+            string[] parameterGroupNames = Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInParameterGroup));
 
-            foreach (string s in categoryNames)
+            foreach (string s in parameterGroupNames)
             {
                 if(Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
                 {
-                    outputCategories.Add(s);
+                    outputParameterGroupNames.Add(s);
                 }
             }
 
-            return outputCategories;
+            return outputParameterGroupNames;
         }
 
         /// <summary>
-        /// Returns a list of all builtin categories.
+        /// Returns a list of all built it parameter groups.
         /// </summary>
         /// <returns></returns>
         public static string[] ListAll()
         {
-            return Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInCategory));
+            return Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInParameterGroup));
         }
     }
 }

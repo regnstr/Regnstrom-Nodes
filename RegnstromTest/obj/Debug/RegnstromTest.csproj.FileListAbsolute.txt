@@ -1,0 +1,9 @@
+H:\Data\dynamo\Regnstrom\RegnstromTest\bin\Debug\RegnstromTest.dll
+H:\Data\dynamo\Regnstrom\RegnstromTest\bin\Debug\RegnstromTest.pdb
+H:\Data\dynamo\Regnstrom\RegnstromTest\obj\Debug\RegnstromTest.csprojResolveAssemblyReference.cache
+H:\Data\dynamo\Regnstrom\RegnstromTest\obj\Debug\RegnstromTest.dll
+H:\Data\dynamo\Regnstrom\RegnstromTest\obj\Debug\RegnstromTest.pdb
+H:\Data\dynamo\Regnstrom\RegnstromTest\bin\Debug\RegnstromTest.dll.config
+C:\Users\seregn\programming\Regnstrom-Nodes\RegnstromTest\obj\Debug\RegnstromTest.csprojResolveAssemblyReference.cache
+C:\Users\seregn\programming\Regnstrom-Nodes\RegnstromTest\obj\Debug\RegnstromTest.dll
+C:\Users\seregn\programming\Regnstrom-Nodes\RegnstromTest\obj\Debug\RegnstromTest.pdb
