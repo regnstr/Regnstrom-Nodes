@@ -28,6 +28,21 @@ namespace Views
         internal View() { }
         
         /// <summary>
+        /// Exports the view to DWG with the view name as the output file name.
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="destination"></param>
+        /// <param name="exportOptionsName"></param>
+        /// <returns></returns>
+        public static bool ExportDWG(Revit.Elements.Views.View view, string destination, string exportOptionsName)
+        {
+            var doc = DocumentManager.Instance.CurrentDBDocument;
+            var iView = view.InternalElement as Autodesk.Revit.DB.View;
+            doc.Export(destination, iView.ViewName, new[] { iView.Id }, DWGExportOptions.GetPredefinedOptions(doc, exportOptionsName));
+            return true;
+        }
+
+        /// <summary>
         /// Rotates a view around its center point. It is equivalent to selecting the crop region and rotating it counter clockwise.
         /// </summary>
         /// <param name="view">The view to rotate.</param>

@@ -27,6 +27,15 @@ namespace Revit
         internal Document() { }
 
         /// <summary>
+        /// Returns a list of all predefined dwg export options.
+        /// </summary>
+        /// <returns></returns>
+        public static string[] DWGExportOptions()
+        {
+            return ExportDWGSettings.ListNames(DocumentManager.Instance.CurrentDBDocument).ToArray();
+        }
+
+        /// <summary>
         /// Returns all views in the active document except view templates.
         /// </summary>
         /// <param name="toggle"></param>
