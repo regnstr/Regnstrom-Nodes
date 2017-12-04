@@ -33,7 +33,10 @@ namespace Site
         {
             Document doc = DocumentManager.Instance.CurrentDBDocument;
             ProjectLocation projL = doc.ActiveProjectLocation;
-            ProjectPosition projP = projL.GetProjectPosition(XYZ.Zero);
+
+            // THIS NEEDS TO BE UPDATED FOR 2018!
+            ProjectPosition projP = projL.get_ProjectPosition(XYZ.Zero);
+
             return new Dictionary<string, dynamic>() {
                 { "angle",  projP.Angle / Math.PI * 180.0 },
                 { "vector", Vector.ByCoordinates(Math.Sin(projP.Angle), Math.Cos(projP.Angle), 0)}
