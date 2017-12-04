@@ -18,7 +18,7 @@ using Revit.Elements;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace Elements
+namespace Regnstrom.Elements
 {
     public static class Element
     {

@@ -143,6 +143,7 @@
     <Compile Include="Classes\Site\Location.cs" />
     <Compile Include="Classes\Parameters\FamilyParameter.cs" />
     <Compile Include="Classes\String\Scale.cs" />
+    <Compile Include="Classes\Views\Section.cs" />
     <Compile Include="Classes\Views\View.cs" />
     <Compile Include="Classes\Views\Sheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,6 +158,10 @@
     <EmbeddedResource Include="Resources\RegnstromImages.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Regnstrom_DynamoCustomization.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\Icon_IconLarge.png" />
     <Content Include="Resources\Icon_IconSmall.png" />
   </ItemGroup>

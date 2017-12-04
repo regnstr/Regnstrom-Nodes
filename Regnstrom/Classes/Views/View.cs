@@ -18,7 +18,7 @@ using Revit.Elements;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
 
-namespace Views
+namespace Regnstrom.Views
 {
     /// <summary>
     /// Extensions for handling views.
@@ -154,7 +154,7 @@ namespace Views
         /// <summary>
         /// Struct to hold the crop element and crop region for a view
         /// </summary>
-        private struct ViewCrop
+        internal struct ViewCrop
         {
             public Autodesk.Revit.DB.Element cropElement;
             public Autodesk.Revit.DB.CurveLoop cropRegion;
@@ -206,7 +206,7 @@ namespace Views
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        private static ViewCrop GetViewCrop(Autodesk.Revit.DB.View view)
+        internal static ViewCrop GetViewCrop(Autodesk.Revit.DB.View view)
         {
             var doc = DocumentManager.Instance.CurrentDBDocument;
 

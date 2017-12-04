@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <assembly>
+    <name>Regnstrom</name>
+  </assembly>
+  <namespaces>
+    <namespace name="Regnstrom.Elements">
+      <category>Regnstrom.Elements</category>
+    </namespace>
+    <namespace name="Regnstrom.Views">
+      <category>Regnstrom.Views</category>
+    </namespace>
+  </namespaces>
+</doc>
