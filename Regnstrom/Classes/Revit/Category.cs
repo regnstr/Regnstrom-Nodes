@@ -18,14 +18,14 @@ using RevitServices.Transactions;
 namespace Revit
 {
     /// <summary>
-    /// Utility methods for finding builtin categores.
+    /// Utility methods for finding categores.
     /// </summary>
-    public class BuiltInCategory
+    public class Category
     {
-        internal BuiltInCategory() { }
+        internal Category() { }
 
         /// <summary>
-        /// Finds all builtin categories matching the regex pattern.
+        /// Finds all categories matching the regex pattern.
         /// </summary>
         /// <param name="pattern">The pattern to match.</param>
         /// <returns></returns>
@@ -33,11 +33,11 @@ namespace Revit
         {
             List<string> outputCategories = new List<string>();
 
-            string[] categoryNames = Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInCategory));
+            string[] categoryNames = Enum.GetNames(typeof(Autodesk.Revit.DB.Category));
 
             foreach (string s in categoryNames)
             {
-                if(Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
+                if (Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
                 {
                     outputCategories.Add(s);
                 }
@@ -47,12 +47,12 @@ namespace Revit
         }
 
         /// <summary>
-        /// Returns a list of all builtin categories.
+        /// Returns a list of all categories.
         /// </summary>
         /// <returns></returns>
         public static string[] ListAll()
         {
-            return Enum.GetNames(typeof(Autodesk.Revit.DB.BuiltInCategory));
+            return Enum.GetNames(typeof(Autodesk.Revit.DB.Category));
         }
     }
 }

@@ -71,8 +71,8 @@ namespace Regnstrom.Views
             var sectionElement = Regnstrom.Views.View.GetCropElement(section).InternalElement;
 
             // Construct flip plane
-            //var flipPlane = Autodesk.Revit.DB.Plane.CreateByNormalAndOrigin(iView.ViewDirection, iView.Origin);
-            var flipPlane = new Autodesk.Revit.DB.Plane(iView.ViewDirection, iView.Origin);
+            var flipPlane = Autodesk.Revit.DB.Plane.CreateByNormalAndOrigin(iView.ViewDirection, iView.Origin);
+            //var flipPlane = new Autodesk.Revit.DB.Plane(iView.ViewDirection, iView.Origin);
 
             // Flip view
             TransactionManager.Instance.EnsureInTransaction(doc);

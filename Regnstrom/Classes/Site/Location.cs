@@ -34,8 +34,8 @@ namespace Site
             Document doc = DocumentManager.Instance.CurrentDBDocument;
             ProjectLocation projL = doc.ActiveProjectLocation;
 
-            // THIS NEEDS TO BE UPDATED FOR 2018!
-            ProjectPosition projP = projL.get_ProjectPosition(XYZ.Zero);
+            //ProjectPosition projP = projL.get_ProjectPosition(XYZ.Zero); FOR REVIT API <2018
+            ProjectPosition projP = projL.GetProjectPosition(XYZ.Zero);
 
             return new Dictionary<string, dynamic>() {
                 { "angle",  projP.Angle / Math.PI * 180.0 },

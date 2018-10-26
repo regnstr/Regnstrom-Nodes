@@ -25,11 +25,11 @@ namespace Revit
         internal ParameterGroup() { }
 
         /// <summary>
-        /// Finds all built in parameter group names matching the regex pattern.
+        /// Finds all builtin parameter group names matching the regex pattern.
         /// </summary>
         /// <param name="pattern">The pattern to match.</param>
         /// <returns></returns>
-        public static List<string> FindParameterGroupByName(string pattern)
+        public static List<string> FindByName(string pattern)
         {
             List<string> outputParameterGroupNames = new List<string>();
 
@@ -47,7 +47,7 @@ namespace Revit
         }
 
         /// <summary>
-        /// Returns a list of all built it parameter groups.
+        /// Returns a list of all builtin parameter groups.
         /// </summary>
         /// <returns></returns>
         public static string[] ListAll()
