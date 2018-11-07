@@ -50,9 +50,29 @@ namespace Revit
         /// Returns a list of all categories.
         /// </summary>
         /// <returns></returns>
-        public static string[] ListAll()
+        [MultiReturn(new[] { "ModelCategories", "AnnotationCategories"})]
+        public static Dictionary<string, string[]> ListAll()
         {
-            return Enum.GetNames(typeof(Autodesk.Revit.DB.Category));
+            var categories = DocumentManager.Instance.CurrentDBDocument.Settings.Categories;
+            List<string> modelCategories = new List<string>();
+            List<string> annotationCategories = new List<string>();
+
+            foreach (Autodesk.Revit.DB.Category c in categories)
+            {
+                if (c.CategoryType == CategoryType.Model)
+                {
+                    modelCategories.Add(c.Name);
+                } else if (c.CategoryType == CategoryType.Annotation)
+                {
+                    annotationCategories.Add(c.Name);
+                }
+            }
+
+            return new Dictionary<string, string[]>()
+            {
+                { "ModelCategories", modelCategories.ToArray() },
+                { "AnnotationCategories", annotationCategories.ToArray() }
+            };
         }
     }
 }

@@ -176,6 +176,7 @@
   <ItemGroup>
     <Compile Include="Classes\Annotations\FilledRegion.cs" />
     <Compile Include="Classes\Elements\Element.cs" />
+    <Compile Include="Classes\Elements\Family.cs" />
     <Compile Include="Classes\Elements\FamilyInstance.cs" />
     <Compile Include="Classes\Elements\Room.cs" />
     <Compile Include="Classes\Experimental\Experimental.cs" />
@@ -199,15 +200,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\RegnstromImages.resx" />
+    <EmbeddedResource Include="RegnstromImages.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Regnstrom_DynamoCustomization.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Resources\DefaultCustomNode.Large.png" />
-    <None Include="Resources\DefaultCustomNode.Small.png" />
+    <Content Include="Resources\DefaultCustomNode.Large.png" />
+    <Content Include="Resources\DefaultCustomNode.Small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -225,8 +226,8 @@
       <Output TaskParameter="Assemblies" ItemName="AssemblyInfo" />
     </GetAssemblyIdentity>
     <!-- Generate customization dll -->
-    <GenerateResource UseSourcePath="true" Sources="$(ProjectDir)\Resources\RegnstromImages.resx" OutputResources="$(ProjectDir)\Resources\RegnstromImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
-    <AL TargetType="library" EmbedResources="$(ProjectDir)\Resources\RegnstromImages.resources" OutputAssembly="$(OutDir)Regnstrom.customization.dll" Version="%(AssemblyInfo.Version)" />
+    <GenerateResource UseSourcePath="true" Sources="$(ProjectDir)\RegnstromImages.resx" OutputResources="$(ProjectDir)\RegnstromImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
+    <AL TargetType="library" EmbedResources="$(ProjectDir)\RegnstromImages.resources" OutputAssembly="$(OutDir)Regnstrom.customization.dll" Version="%(AssemblyInfo.Version)" />
     <ItemGroup>
       <Dlls Include="$(OutDir)*.dll" />
       <Pdbs Include="$(OutDir)*.pdb" />
