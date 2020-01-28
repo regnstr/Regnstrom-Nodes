@@ -33,13 +33,13 @@ namespace Revit
         {
             List<string> outputCategories = new List<string>();
 
-            string[] categoryNames = Enum.GetNames(typeof(Autodesk.Revit.DB.Category));
+            var categories = DocumentManager.Instance.CurrentDBDocument.Settings.Categories;
 
-            foreach (string s in categoryNames)
+            foreach (Autodesk.Revit.DB.Category c in categories)
             {
-                if (Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
+                if (Regex.IsMatch(c.Name, pattern, RegexOptions.IgnoreCase))
                 {
-                    outputCategories.Add(s);
+                    outputCategories.Add(c.Name);
                 }
             }
 

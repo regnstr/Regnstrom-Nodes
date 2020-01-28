@@ -16,5 +16,8 @@
     <namespace name="Regnstrom.Experimental">
       <category>Regnstrom.Experimental</category>
     </namespace>
+    <namespace name="Regnstrom.Office">
+      <category>Regnstrom.Office</category>
+    </namespace>
   </namespaces>
 </doc>
